@@ -20,7 +20,7 @@
       </div>
 
       <div class="row" v-else>
-        <div class="col-6">
+        <div class="col-12">
           <table class="table table-dark table-hover">
             <thead>
             <tr>
@@ -30,30 +30,14 @@
             </thead>
             <tbody>
               <tr v-for="(user, index) in users" v-bind:key="index">
-                <td @click="selectUser(user)">{{ user.name }}</td>
+                <td><a :href="'/#/profile/'+user.id">{{ user.name }}</a></td>
                 <td>{{ user.email }}</td>
               </tr>
 
             </tbody>
           </table>
         </div>
-        <div class="col-6" v-if="selectedUsers !== '' ">
-          <transition name="bounce">
 
-            <div class="row" v-if="showCard == true">
-                  <div class="col-12">
-                    <button @click="hideCard" type="button" class="close" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="col-12">
-                    <UserCard :info="this.selectedUsers" ></UserCard>
-
-                  </div>
-            </div>
-          </transition>
-
-        </div>
       </div>
   </div>
 
@@ -61,7 +45,6 @@
 
 <script>
 import axios from 'axios'
-import UserCard from './UserCard'
 
 export default {
 
@@ -78,7 +61,6 @@ export default {
   },
 
   components:{
-    UserCard,
 
   },
 

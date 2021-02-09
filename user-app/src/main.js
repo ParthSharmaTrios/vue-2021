@@ -1,10 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VueRouter from 'vue-router'
+import routes from './routes/index'
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import VueSpinners from 'vue-spinners'
 
 Vue.use(VueSpinners)
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  //mode : 'history',
+  routes
+})
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
@@ -19,4 +27,5 @@ Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
+  router
 }).$mount('#app')
