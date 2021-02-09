@@ -30,7 +30,7 @@
             </thead>
             <tbody>
               <tr v-for="(user, index) in users" v-bind:key="index">
-                <td><a :href="'/#/profile/'+user.id">{{ user.name }}</a></td>
+                <td><a :href="'/profile/'+user.id">{{ user.name }}</a></td>
                 <td>{{ user.email }}</td>
               </tr>
 
